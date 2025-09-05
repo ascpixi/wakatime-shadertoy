@@ -1,0 +1,26 @@
+{
+  "name": "wakatime-shadertoy-extension",
+  "version": "1.0.0",
+  "description": "WakaTime extension for tracking ShaderToy editing time",
+  "scripts": {
+    "build": "webpack --mode=production && node scripts/build-extensions.js",
+    "build:dev": "webpack --mode=development",
+    "dev": "webpack --mode=development --watch",
+    "clean": "rm -rf dist dist-chrome dist-firefox *.zip",
+    "package": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.3",
+    "@types/chrome": "^0.0.246",
+    "@types/webextension-polyfill": "^0.10.0",
+    "archiver": "^7.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "webextension-polyfill": "^0.10.0"
+  }
+}

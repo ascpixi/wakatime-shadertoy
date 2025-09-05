@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WakaTime for ShaderToy</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 16px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 14px;
+      background: #f5f5f5;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 4px;
+    }
+    
+    .subtitle {
+      color: #666;
+      font-size: 12px;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+    
+    .status.connected {
+      background: #e8f5e8;
+      color: #2e7d32;
+    }
+    
+    .status.disconnected {
+      background: #ffebee;
+      color: #c62828;
+    }
+    
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status.connected .status-indicator {
+      background: #4CAF50;
+    }
+    
+    .status.disconnected .status-indicator {
+      background: #f44336;
+    }
+    
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.2s;
+    }
+    
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #45a049;
+    }
+    
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+    
+    .btn-secondary:hover {
+      background: #d0d0d0;
+    }
+    
+    .test-result {
+      margin-top: 8px;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      word-wrap: break-word;
+    }
+    
+    .test-result.success {
+      background: #e8f5e8;
+      color: #2e7d32;
+    }
+    
+    .test-result.error {
+      background: #ffebee;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">WakaTime for ShaderToy</div>
+    <div class="subtitle">Time tracking for shader development</div>
+  </div>
+  
+  <div id="status" class="status disconnected">
+    <div class="status-indicator"></div>
+    <span>Not configured</span>
+  </div>
+  
+  <div class="actions">
+    <button id="testBtn" class="btn btn-primary">Test Connection</button>
+    <button id="optionsBtn" class="btn btn-secondary">Open Settings</button>
+  </div>
+  
+  <div id="testResult" class="test-result" style="display: none;"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

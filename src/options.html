@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WakaTime for ShaderToy - Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 8px;
+    }
+    
+    .subtitle {
+      color: #666;
+      font-size: 16px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .card h2 {
+      margin: 0 0 16px 0;
+      color: #333;
+      font-size: 18px;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #555;
+    }
+    
+    .form-group input[type="text"],
+    .form-group input[type="url"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    .form-group input[type="text"]:focus,
+    .form-group input[type="url"]:focus {
+      outline: none;
+      border-color: #4CAF50;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    }
+    
+    .form-group .help-text {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+    
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #45a049;
+    }
+    
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+    
+    .btn-secondary:hover {
+      background: #d0d0d0;
+    }
+    
+    .status-message {
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .status-message.success {
+      background: #e8f5e8;
+      color: #2e7d32;
+      border: 1px solid #c8e6c9;
+    }
+    
+    .status-message.error {
+      background: #ffebee;
+      color: #c62828;
+      border: 1px solid #ffcdd2;
+    }
+    
+    .wakatime-link {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+    
+    .wakatime-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">WakaTime for ShaderToy</div>
+      <div class="subtitle">Configure your time tracking settings</div>
+    </div>
+    
+    <div id="statusMessage" class="status-message" style="display: none;"></div>
+    
+    <div class="card">
+      <h2>WakaTime Configuration</h2>
+      
+      <div class="checkbox-group">
+        <input type="checkbox" id="enabled" />
+        <label for="enabled">Enable WakaTime tracking</label>
+      </div>
+      
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <input type="text" id="apiKey" placeholder="Enter your WakaTime API key" />
+        <div class="help-text">
+          Get your API key from <a href="https://wakatime.com/api-key" target="_blank" class="wakatime-link">wakatime.com/api-key</a>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="apiUrl">API Server URL</label>
+        <input type="url" id="apiUrl" placeholder="https://api.wakatime.com/api/v1" />
+        <div class="help-text">
+          Use the default URL for WakaTime.com or enter a custom server URL
+        </div>
+      </div>
+      
+      <div class="actions">
+        <button id="testBtn" class="btn btn-secondary">Test Connection</button>
+        <button id="saveBtn" class="btn btn-primary">Save Settings</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

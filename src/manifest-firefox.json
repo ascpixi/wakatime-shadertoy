@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "WakaTime for ShaderToy",
+  "version": "1.0.0",
+  "description": "Track time spent editing ShaderToy shaders with WakaTime",
+  "permissions": [
+  "storage",
+  "activeTab", 
+  "notifications",
+  "https://www.shadertoy.com/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@wakatime-shadertoy.ascpixi"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.shadertoy.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "WakaTime for ShaderToy"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": ["injected.js"]
+}
